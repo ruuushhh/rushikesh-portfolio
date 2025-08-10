@@ -1,0 +1,42 @@
+[
+  {
+    "company": "Sage (Formaly Fyle)",
+    "role": "Member of Technical Staff 3",
+    "location": "Bengaluru",
+    "start": "2023-02",
+    "end": "present",
+    "bullets": [
+      "Enhanced integrations across NetSuite, Xero, Intacct, and QBO; improved sync reliability and reduced error rates.",
+      "Designed scalable backend solutions for high-volume APIs; reduced latency and improved maintainability.",
+      "Integrated Grafana and Sentry for proactive monitoring; minimized downtime and accelerated incident response.",
+      "Led production deployments; ensured smooth, low-risk rollouts and operational stability.",
+      "Automated integration workflows with custom tooling; increased efficiency and reduced manual effort."
+    ],
+    "tags": ["Python", "Django", "PostgreSQL", "APIs", "Grafana", "Sentry", "Kubernetes"]
+  },
+  {
+    "company": "Boongg",
+    "role": "Full Stack Developer Intern",
+    "location": "Pune",
+    "start": "2022-03",
+    "end": "2022-06",
+    "bullets": [
+      "Built chatbot to improve user communication.",
+      "Implemented automated payment workflows.",
+      "Developed CRM for data visualization and system management."
+    ],
+    "tags": ["Node", "React", "Payments"]
+  },
+  {
+    "company": "Abekus",
+    "role": "Python Backend Developer Intern",
+    "location": "Bengaluru",
+    "start": "2021-11",
+    "end": "2022-03",
+    "bullets": [
+      "Prepared datasets and developed web app interfaces and APIs.",
+      "Built API to generate XML for Google Search."
+    ],
+    "tags": ["Python", "APIs"]
+  }
+]

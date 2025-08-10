@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Integrations Optimization",
+    "summary": "Direct export flows for NetSuite/Intacct/Xero; better logging and error handling; robust queuing.",
+    "details": "Optimized integration workflows with improved error handling, robust queuing mechanisms, and comprehensive logging for better observability and debugging.",
+    "image": "/integrations-optimization.png",
+    "links": {
+      "github": "#",
+      "live": "#"
+    },
+    "tags": ["Python", "Django", "Integrations", "Queues"]
+  },
+  {
+    "title": "Monitoring & Alerting",
+    "summary": "Grafana + Sentry dashboards and alerts; rapid production issue resolution.",
+    "details": "Comprehensive monitoring solution using Grafana dashboards and Sentry alerts to enable rapid production issue identification and resolution.",
+    "image": "/monitoring-alerting.png",
+    "links": {
+      "github": "#",
+      "live": "#"
+    },
+    "tags": ["Grafana", "Sentry", "Kubernetes"]
+  },
+  {
+    "title": "Cross-System Synchronization",
+    "summary": "Improved sync flows between internal platforms and accounting systems; handled deletions efficiently.",
+    "details": "Enhanced synchronization processes between internal platforms and external accounting systems with efficient handling of data deletions and updates.",
+    "image": "/cross-system-synchronization.png",
+    "links": {
+      "github": "#",
+      "live": "#"
+    },
+    "tags": ["Python", "Django", "PostgreSQL"]
+  }
+]

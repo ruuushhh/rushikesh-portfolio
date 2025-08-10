@@ -1,0 +1,9 @@
+{
+  "languages": ["Python", "SQL", "TypeScript", "C++"],
+  "frameworks": ["Django", "FastAPI", "Flask", "React"],
+  "databases": ["PostgreSQL", "NoSQL"],
+  "platforms": ["AWS", "GCP", "Docker", "Kubernetes"],
+  "integrations": ["NetSuite", "Sage Intacct", "Xero", "QBO"],
+  "tools": ["GitHub Actions", "Grafana", "Sentry", "Locust"],
+  "domains": ["Fintech", "Accounting Integrations", "APIs", "Observability", "CI/CD"]
+}
