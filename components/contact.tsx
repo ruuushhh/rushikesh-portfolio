@@ -31,7 +31,7 @@ export function Contact() {
         </CardHeader>
         <CardContent className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-sm text-muted-foreground">Prefer email. I reply within 24–48 hours.</p>
+            <p className="text-sm text-muted-foreground">Prefer email. I reply within 12–24 hours.</p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <Button asChild className="bg-indigo-600 text-white hover:bg-indigo-500">

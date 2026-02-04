@@ -41,13 +41,13 @@ export function Hero() {
             </div>
           </div>
           <div className="flex w-full items-center gap-2 md:w-auto">
-            <Button asChild className="w-full bg-indigo-600 text-white hover:bg-indigo-500 md:w-auto">
+            <Button asChild className="flex-1 bg-indigo-600 text-white hover:bg-indigo-500 md:flex-none md:w-auto">
               <a href="/api/resume" aria-label="Download resume">
                 <Download className="mr-2 h-4 w-4" />
                 Resume
               </a>
             </Button>
-            <Button variant="outline" onClick={onContactClick} className="w-full md:w-auto bg-transparent">
+            <Button variant="outline" onClick={onContactClick} className="flex-1 bg-transparent md:flex-none md:w-auto">
               <Mail className="mr-2 h-4 w-4" />
               Contact
             </Button>
@@ -57,33 +57,42 @@ export function Hero() {
         <p className="mt-6 max-w-3xl text-base leading-relaxed">
           I build and maintain backend systems that connect enterprise accounting platforms—NetSuite, 
           Sage Intacct, QBO, Xero—to internal products. I own production systems, handle on-call rotations, 
-          and debug complex integration failures under pressure. Currently at <span className="font-medium">Sage</span>.
+          and debug complex integration failures under pressure. Currently working as a <span className="font-medium">Senior Engineer</span> at <span className="font-medium">Sage</span>.
         </p>
 
-        <div className="mt-6 space-y-3">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-medium text-muted-foreground w-20">Backend</span>
-            {coreStack.map((t) => (
-              <Badge key={t} variant="secondary" className="rounded-full">
-                {t}
-              </Badge>
-            ))}
+        <div className="mt-6 space-y-4">
+          <div className="space-y-2">
+            <span className="text-xs font-medium text-muted-foreground sm:hidden">Backend</span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="hidden text-xs font-medium text-muted-foreground w-20 sm:inline">Backend</span>
+              {coreStack.map((t) => (
+                <Badge key={t} variant="secondary" className="rounded-full">
+                  {t}
+                </Badge>
+              ))}
+            </div>
           </div>
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-medium text-muted-foreground w-20">Integrations</span>
-            {integrations.map((t) => (
-              <Badge key={t} variant="outline" className="rounded-full">
-                {t}
-              </Badge>
-            ))}
+          <div className="space-y-2">
+            <span className="text-xs font-medium text-muted-foreground sm:hidden">Integrations</span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="hidden text-xs font-medium text-muted-foreground w-20 sm:inline">Integrations</span>
+              {integrations.map((t) => (
+                <Badge key={t} variant="outline" className="rounded-full">
+                  {t}
+                </Badge>
+              ))}
+            </div>
           </div>
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-medium text-muted-foreground w-20">Infra</span>
-            {infra.map((t) => (
-              <Badge key={t} variant="outline" className="rounded-full border-dashed">
-                {t}
-              </Badge>
-            ))}
+          <div className="space-y-2">
+            <span className="text-xs font-medium text-muted-foreground sm:hidden">Infra</span>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="hidden text-xs font-medium text-muted-foreground w-20 sm:inline">Infra</span>
+              {infra.map((t) => (
+                <Badge key={t} variant="outline" className="rounded-full border-dashed">
+                  {t}
+                </Badge>
+              ))}
+            </div>
           </div>
         </div>
       </motion.div>
