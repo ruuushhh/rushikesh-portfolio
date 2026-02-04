@@ -7,89 +7,137 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import experienceData from "@/content/experience.json"
 
-type Item = {
+type ThemeSection = {
+  theme: string
+  bullets: string[]
+}
+
+type ExperienceItem = {
   company: string
   role: string
   location?: string
   start: string
   end: string
-  bullets: string[]
+  sections?: ThemeSection[]
+  bullets?: string[]
   tags: string[]
-  logo?: string
 }
 
-// Transform the data to match the expected format
-const ITEMS: (Item & { dates: string })[] = experienceData.map(item => ({
-  ...item,
-  dates: `${new Date(item.start + "-01").getFullYear()} — ${item.end === "present" ? "Present" : new Date(item.end + "-01").getFullYear()}`,
-  logo: item.company.toLowerCase().includes('sage') || item.company.toLowerCase().includes('fyle') 
-    ? "/sage-logo.png" 
-    : item.company.toLowerCase().includes('boongg')
-    ? "/boongg-logo.jpeg"
-    : item.company.toLowerCase().includes('abekus')
-    ? "/abekus-logo.jpeg"
-    : "/placeholder.svg?height=48&width=48"
-}))
+function getLogo(company: string): string {
+  const c = company.toLowerCase()
+  if (c.includes('sage') || c.includes('fyle')) return "/sage-logo.png"
+  if (c.includes('boongg')) return "/boongg-logo.jpeg"
+  if (c.includes('abekus')) return "/abekus-logo.jpeg"
+  return "/placeholder.svg?height=48&width=48"
+}
+
+function formatDates(start: string, end: string): string {
+  const startYear = new Date(start + "-01").getFullYear()
+  const endStr = end === "present" ? "Present" : new Date(end + "-01").getFullYear()
+  return `${startYear} — ${endStr}`
+}
 
 export function Experience() {
+  const items = experienceData as ExperienceItem[]
+  const mainRole = items[0]
+  const otherRoles = items.slice(1)
+
   return (
-    <Section id="experience" title="Experience" subtitle="Recent roles and responsibilities.">
-      <div className="relative">
-        <div className="absolute left-[13px] top-0 h-full w-px bg-border md:left-[15px]" aria-hidden="true" />
-        <ul className="space-y-6">
-          {ITEMS.map((item, idx) => (
-            <motion.li
-              key={item.company}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.45, delay: idx * 0.05 }}
-              className="relative pl-10 md:pl-12"
-            >
-              <span
-                className="absolute left-0 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full border bg-background text-xs font-semibold text-indigo-600 shadow-sm"
-                aria-hidden="true"
-              >
-                {idx + 1}
-              </span>
-              <Card className="transition-transform hover:-translate-y-0.5 hover:shadow-md">
-                <CardHeader className="flex flex-row items-center justify-between space-y-0">
-                  <div>
-                    <CardTitle className="text-lg">{item.role}</CardTitle>
-                    <p className="text-sm text-muted-foreground">
-                      {item.company} · {item.dates}
-                    </p>
-                  </div>
-                  {item.logo ? (
-                    <div className="relative h-8 w-8 shrink-0">
-                      <Image
-                        src={item.logo || "/placeholder.svg"}
-                        alt={`${item.company} logo`}
-                        fill
-                        sizes="32px"
-                        className="rounded"
-                      />
-                    </div>
-                  ) : null}
-                </CardHeader>
-                <CardContent>
+    <Section id="experience" title="Experience" subtitle="Production systems, integrations, and backend engineering.">
+      <div className="space-y-8">
+        {/* Main role with expanded detail */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.45 }}
+        >
+          <Card className="border-l-4 border-l-indigo-600">
+            <CardHeader className="flex flex-row items-start justify-between gap-4">
+              <div className="space-y-1">
+                <CardTitle className="text-xl">{mainRole.role}</CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  {mainRole.company} · {formatDates(mainRole.start, mainRole.end)}
+                </p>
+              </div>
+              <div className="relative h-10 w-10 shrink-0">
+                <Image
+                  src={getLogo(mainRole.company)}
+                  alt={`${mainRole.company} logo`}
+                  fill
+                  sizes="40px"
+                  className="rounded"
+                />
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {mainRole.sections?.map((section) => (
+                <div key={section.theme}>
+                  <h4 className="mb-2 text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+                    {section.theme}
+                  </h4>
                   <ul className="list-outside list-disc space-y-2 pl-5 text-sm">
-                    {item.bullets.map((b) => (
-                      <li key={b}>{b}</li>
+                    {section.bullets.map((b, i) => (
+                      <li key={i}>{b}</li>
                     ))}
                   </ul>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {item.tags.map((t) => (
-                      <Badge key={t} variant="secondary" className="rounded-full">
-                        {t}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.li>
-          ))}
-        </ul>
+                </div>
+              ))}
+              <div className="flex flex-wrap gap-2 pt-2">
+                {mainRole.tags.map((t) => (
+                  <Badge key={t} variant="secondary" className="rounded-full">
+                    {t}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        {/* Previous roles - compact */}
+        {otherRoles.length > 0 && (
+          <div>
+            <h3 className="mb-4 text-sm font-medium text-muted-foreground">Previous Experience</h3>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {otherRoles.map((item, idx) => (
+                <motion.div
+                  key={item.company}
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.4, delay: idx * 0.05 }}
+                >
+                  <Card className="h-full">
+                    <CardHeader className="flex flex-row items-center justify-between gap-2 pb-2">
+                      <div>
+                        <CardTitle className="text-base">{item.role}</CardTitle>
+                        <p className="text-xs text-muted-foreground">
+                          {item.company} · {formatDates(item.start, item.end)}
+                        </p>
+                      </div>
+                      <div className="relative h-6 w-6 shrink-0">
+                        <Image
+                          src={getLogo(item.company)}
+                          alt={`${item.company} logo`}
+                          fill
+                          sizes="24px"
+                          className="rounded"
+                        />
+                      </div>
+                    </CardHeader>
+                    <CardContent className="pt-0">
+                      <ul className="list-outside list-disc space-y-1 pl-4 text-xs text-muted-foreground">
+                        {item.bullets?.map((b, i) => (
+                          <li key={i}>{b}</li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </Section>
   )

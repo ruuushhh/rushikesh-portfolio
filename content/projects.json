@@ -1,35 +1,26 @@
 [
   {
-    "title": "Integrations Optimization",
-    "summary": "Direct export flows for NetSuite/Intacct/Xero; better logging and error handling; robust queuing.",
-    "details": "Optimized integration workflows with improved error handling, robust queuing mechanisms, and comprehensive logging for better observability and debugging.",
+    "title": "Direct Export Implementation",
+    "problem": "Export workflows to NetSuite, Intacct, and Xero were coupled to a shared pipeline, causing cascading failures and making debugging difficult.",
+    "action": "Refactored into direct export paths per integration with isolated error handling, retry logic, and dedicated logging. Implemented Django Q2 for efficient task queuing.",
+    "result": "Reduced cross-integration failures, improved error isolation, and cut debugging time significantly. Each integration can now fail independently without affecting others.",
     "image": "/integrations-optimization.png",
-    "links": {
-      "github": "#",
-      "live": "#"
-    },
-    "tags": ["Python", "Django", "Integrations", "Queues"]
+    "tags": ["Python", "Django", "NetSuite", "Xero", "Intacct"]
   },
   {
-    "title": "Monitoring & Alerting",
-    "summary": "Grafana + Sentry dashboards and alerts; rapid production issue resolution.",
-    "details": "Comprehensive monitoring solution using Grafana dashboards and Sentry alerts to enable rapid production issue identification and resolution.",
+    "title": "Observability Infrastructure",
+    "problem": "Production issues were discovered reactively—often by customers reporting sync failures. No centralized view of integration health.",
+    "action": "Built Grafana dashboards tracking sync success rates, latency, and queue depths. Configured Sentry alerts for error spikes and specific failure patterns across Business Central and Sage 300.",
+    "result": "Reduced mean time to detection for integration failures. Team can now identify degraded performance before it impacts customers.",
     "image": "/monitoring-alerting.png",
-    "links": {
-      "github": "#",
-      "live": "#"
-    },
-    "tags": ["Grafana", "Sentry", "Kubernetes"]
+    "tags": ["Grafana", "Sentry", "Kubernetes", "Monitoring"]
   },
   {
-    "title": "Cross-System Synchronization",
-    "summary": "Improved sync flows between internal platforms and accounting systems; handled deletions efficiently.",
-    "details": "Enhanced synchronization processes between internal platforms and external accounting systems with efficient handling of data deletions and updates.",
+    "title": "Cross-System Sync Refactor",
+    "problem": "Deleted categories and projects in the source system weren't propagating correctly to accounting platforms, causing data inconsistencies.",
+    "action": "Redesigned sync logic to handle deletion events explicitly. Added reconciliation checks and soft-delete tracking across internal platforms and ERP systems.",
+    "result": "Eliminated data drift between systems. Customers no longer report orphaned records in their accounting software.",
     "image": "/cross-system-synchronization.png",
-    "links": {
-      "github": "#",
-      "live": "#"
-    },
-    "tags": ["Python", "Django", "PostgreSQL"]
+    "tags": ["Python", "Django", "PostgreSQL", "Data Sync"]
   }
 ]

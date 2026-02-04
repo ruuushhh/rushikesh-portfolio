@@ -24,7 +24,7 @@ export function Contact() {
   }
 
   return (
-    <Section id="contact" title="Contact" subtitle="Reach out for roles, collaborations, or a quick chat.">
+    <Section id="contact" title="Contact" subtitle="Open to backend, integrations, and reliability-focused roles.">
       <Card className="transition-shadow hover:shadow-md">
         <CardHeader>
           <CardTitle className="text-lg">Let’s work together</CardTitle>

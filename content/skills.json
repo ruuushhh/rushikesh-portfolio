@@ -1,9 +1,18 @@
 {
-  "languages": ["Python", "SQL", "TypeScript", "C++"],
-  "frameworks": ["Django", "FastAPI", "Flask", "React"],
-  "databases": ["PostgreSQL", "NoSQL"],
-  "platforms": ["AWS", "GCP", "Docker", "Kubernetes"],
-  "integrations": ["NetSuite", "Sage Intacct", "Xero", "QBO"],
-  "tools": ["GitHub Actions", "Grafana", "Sentry", "Locust"],
-  "domains": ["Fintech", "Accounting Integrations", "APIs", "Observability", "CI/CD"]
+  "backend": {
+    "label": "Backend & APIs",
+    "items": ["Python", "Django", "FastAPI", "Django REST Framework", "PostgreSQL", "Celery", "Redis"]
+  },
+  "infrastructure": {
+    "label": "Infrastructure & Reliability",
+    "items": ["Docker", "Kubernetes", "Grafana", "Sentry", "GitHub Actions", "Locust"]
+  },
+  "integrations": {
+    "label": "Accounting & ERP Integrations",
+    "items": ["NetSuite", "QuickBooks Online", "Xero", "Sage Intacct", "Business Central", "Sage 300"]
+  },
+  "practices": {
+    "label": "Engineering Practices",
+    "items": ["On-Call & Incident Response", "Production Debugging", "CI/CD Pipelines", "Load Testing", "Observability"]
+  }
 }

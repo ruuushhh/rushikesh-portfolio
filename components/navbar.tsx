@@ -9,11 +9,10 @@ import { useCallback } from "react"
 import { cn } from "@/lib/utils"
 
 const links = [
-  { href: "#highlights", label: "Highlights" },
   { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
+  { href: "#projects", label: "Initiatives" },
+  { href: "#strengths", label: "Strengths" },
   { href: "#skills", label: "Skills" },
-  // { href: "#writing", label: "Writing" },
   { href: "#contact", label: "Contact" },
 ]
 

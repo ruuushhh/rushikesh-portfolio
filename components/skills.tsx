@@ -2,75 +2,56 @@
 
 import { Section } from "./section"
 import { Badge } from "@/components/ui/badge"
-import { cn } from "@/lib/utils"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { motion } from "framer-motion"
 import skillsData from "@/content/skills.json"
 
-const GROUPS: { name: string; items: string[] }[] = [
-  { name: "Languages", items: skillsData.languages },
-  { name: "Frameworks", items: skillsData.frameworks },
-  { name: "Databases", items: skillsData.databases },
-  { name: "Platforms", items: skillsData.platforms },
-  { name: "Integrations", items: skillsData.integrations },
-  { name: "Tools", items: skillsData.tools },
-  { name: "Domains", items: skillsData.domains },
-]
+type SkillGroup = {
+  label: string
+  items: string[]
+}
 
-const PROFICIENCY: { label: string; level: number }[] = [
-  { label: "Python", level: 92 },
-  { label: "Django / DRF", level: 90 },
-  { label: "SQL / PostgreSQL", level: 88 },
-  { label: "Celery / Async", level: 86 },
-  { label: "OAuth2 / Webhooks", level: 84 },
-  { label: "NetSuite / Xero / QBO", level: 82 },
+const GROUPS: SkillGroup[] = [
+  skillsData.backend,
+  skillsData.infrastructure,
+  skillsData.integrations,
+  skillsData.practices,
 ]
 
 export function Skills() {
   return (
-    <Section id="skills" title="Skills" subtitle="Tools and platforms I use to ship reliable systems.">
-      <div className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-xl border p-4">
-          <h3 className="mb-3 text-base font-semibold">Skill groups</h3>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {GROUPS.map((g) => (
-              <div key={g.name}>
-                <p className="mb-2 text-sm font-medium text-muted-foreground">{g.name}</p>
+    <Section id="skills" title="Technical Skills" subtitle="What I work with daily.">
+      <div className="grid gap-4 sm:grid-cols-2">
+        {GROUPS.map((group, i) => (
+          <motion.div
+            key={group.label}
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.4, delay: i * 0.05 }}
+          >
+            <Card className="h-full">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+                  {group.label}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {g.items.map((i) => (
-                    <Badge key={i} variant="secondary" className="rounded-full">
-                      {i}
+                  {group.items.map((item) => (
+                    <Badge 
+                      key={item} 
+                      variant="secondary" 
+                      className="rounded-full text-sm"
+                    >
+                      {item}
                     </Badge>
                   ))}
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="rounded-xl border p-4">
-          <h3 className="mb-3 text-base font-semibold">Proficiency</h3>
-          <ul className="space-y-3">
-            {PROFICIENCY.map((p) => (
-              <li key={p.label}>
-                <div className="mb-1 flex items-center justify-between text-sm">
-                  <span>{p.label}</span>
-                  <span className="text-muted-foreground">{p.level}%</span>
-                </div>
-                <div
-                  className={cn("h-2 w-full rounded-full bg-muted")}
-                  role="progressbar"
-                  aria-valuenow={p.level}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  aria-label={`${p.label} proficiency`}
-                >
-                  <div
-                    className="h-2 rounded-full bg-indigo-600 transition-[width] duration-700 ease-out"
-                    style={{ width: `${p.level}%` }}
-                  />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
       </div>
     </Section>
   )

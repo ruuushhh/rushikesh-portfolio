@@ -4,7 +4,6 @@ import { Highlights } from "@/components/highlights"
 import { Experience } from "@/components/experience"
 import { Projects } from "@/components/projects"
 import { Skills } from "@/components/skills"
-// import { Writing } from "@/components/writing"
 import { Contact } from "@/components/contact"
 import { SiteFooter } from "@/components/site-footer"
 
@@ -14,11 +13,10 @@ export default function Page() {
       <Navbar />
       <main className="mx-auto w-full max-w-[1100px] px-4 sm:px-6 lg:px-8">
         <Hero />
-        <Highlights />
         <Experience />
         <Projects />
+        <Highlights />
         <Skills />
-        {/* <Writing /> */}
         <Contact />
       </main>
       <SiteFooter />

@@ -1,18 +1,36 @@
 [
   {
-    "company": "Sage (Formaly Fyle)",
-    "role": "Member of Technical Staff 3",
-    "location": "Bengaluru",
+    "company": "Sage (formerly Fyle)",
+    "role": "Senior Software Engineer",
+    "location": "Bengaluru (Remote)",
     "start": "2023-02",
     "end": "present",
-    "bullets": [
-      "Enhanced integrations across NetSuite, Xero, Intacct, and QBO; improved sync reliability and reduced error rates.",
-      "Designed scalable backend solutions for high-volume APIs; reduced latency and improved maintainability.",
-      "Integrated Grafana and Sentry for proactive monitoring; minimized downtime and accelerated incident response.",
-      "Led production deployments; ensured smooth, low-risk rollouts and operational stability.",
-      "Automated integration workflows with custom tooling; increased efficiency and reduced manual effort."
+    "sections": [
+      {
+        "theme": "Ownership & Reliability",
+        "bullets": [
+          "Own production systems end-to-end, including on-call rotations and P0 incident response for accounting integrations serving enterprise customers.",
+          "Debug and resolve complex cross-system failures across NetSuite, QBO, Xero, Sage Intacct, Business Central, and Sage 300 under high-pressure situations.",
+          "Lead production deployments with zero-downtime rollouts; established rollback procedures and deployment checklists adopted by the team."
+        ]
+      },
+      {
+        "theme": "Scale & Performance",
+        "bullets": [
+          "Refactored high-volume API endpoints handling thousands of daily sync operations; reduced latency and improved throughput for batch exports.",
+          "Implemented Django Q2 task queuing for efficient background job processing across integration workflows.",
+          "Profiled and optimized PostgreSQL queries for large-scale data synchronization between internal platforms and ERP systems."
+        ]
+      },
+      {
+        "theme": "Observability & Monitoring",
+        "bullets": [
+          "Built Grafana dashboards and Sentry alerts for integration health monitoring; reduced mean time to detection for production issues.",
+          "Established logging standards and error tracking patterns that improved debugging efficiency across the integrations team."
+        ]
+      }
     ],
-    "tags": ["Python", "Django", "PostgreSQL", "APIs", "Grafana", "Sentry", "Kubernetes"]
+    "tags": ["Python", "Django", "PostgreSQL", "Grafana", "Sentry", "Kubernetes", "NetSuite", "QBO", "Xero"]
   },
   {
     "company": "Boongg",
@@ -21,22 +39,22 @@
     "start": "2022-03",
     "end": "2022-06",
     "bullets": [
-      "Built chatbot to improve user communication.",
-      "Implemented automated payment workflows.",
-      "Developed CRM for data visualization and system management."
+      "Built chatbot for customer communication workflows.",
+      "Implemented automated payment processing system.",
+      "Developed internal CRM for data visualization."
     ],
-    "tags": ["Node", "React", "Payments"]
+    "tags": ["Node.js", "React", "Payments"]
   },
   {
     "company": "Abekus",
-    "role": "Python Backend Developer Intern",
+    "role": "Backend Developer Intern",
     "location": "Bengaluru",
     "start": "2021-11",
     "end": "2022-03",
     "bullets": [
-      "Prepared datasets and developed web app interfaces and APIs.",
-      "Built API to generate XML for Google Search."
+      "Developed REST APIs for web application features.",
+      "Built XML generation service for Google Search integration."
     ],
-    "tags": ["Python", "APIs"]
+    "tags": ["Python", "REST APIs"]
   }
 ]

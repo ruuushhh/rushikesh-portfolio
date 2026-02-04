@@ -1,14 +1,18 @@
 [
   {
-    "title": "Promoted twice in 18 months",
-    "desc": "Recognized for high-impact delivery and reliability."
+    "title": "Production Ownership",
+    "desc": "I own systems end-to-end. On-call rotations, incident response, and post-mortems are part of my regular workflow—not exceptions."
   },
   {
-    "title": "Stabilized integrations at scale",
-    "desc": "Reduced API errors and improved synchronization throughput."
+    "title": "Integration Debugging",
+    "desc": "Tracing data across NetSuite, QBO, Xero, and internal systems. Finding why a sync failed at 2 AM is something I've done more than once."
   },
   {
-    "title": "Production deployments",
-    "desc": "Led rollouts with minimal downtime and faster recovery."
+    "title": "Calm Under Pressure",
+    "desc": "P0 incidents don't rattle me. I focus on mitigation first, root cause second, and clear communication throughout."
+  },
+  {
+    "title": "Reliability Engineering",
+    "desc": "Building systems that fail gracefully. Retries, circuit breakers, alerting, and monitoring are defaults—not afterthoughts."
   }
 ]
